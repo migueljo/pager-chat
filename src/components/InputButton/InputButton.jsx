@@ -5,13 +5,15 @@ import * as Styled from './InputButtonStyles'
 
 function InputButton ({ onSubmit, onChange, placeholder, buttonText }) {
   const [message, setMessage] = React.useState('')
+  const clearInput = () => setMessage('')
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSubmit && onSubmit(e, message)
+    // Send clearInput to allow external components to clear input box
+    onSubmit && onSubmit(e, message, clearInput)
   }
   const handleChange = e => {
     setMessage(e.target.value)
-    onChange && onChange(e)
+    onChange && onChange(e, clearInput)
   }
 
   return (

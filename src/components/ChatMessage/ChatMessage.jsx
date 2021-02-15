@@ -3,11 +3,16 @@ import PropTypes from 'prop-types'
 
 import * as Styled from './ChatMessageStyles'
 
+/**
+ * Using https://ui-avatars.com/ to generate initials from names
+ * @param {String} username
+ */
 function getAvatar ({ username }) {
   return `https://ui-avatars.com/api/?background=EEE&color=000&size=80&name=${username}&font-size=0.33`
 }
 
 function ChatMessage ({ data }) {
+  // transform a date into a 12:43 pm/am format
   const time = new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(new Date(data.time))
 
   return (
@@ -26,7 +31,7 @@ function ChatMessage ({ data }) {
             </Styled.Message>
               )
             : (
-            <Styled.Image src={data.url} atl={data.alt} />
+            <Styled.Image src={data.url} alt={data.alt} />
               )
         }
       </Styled.Info>
