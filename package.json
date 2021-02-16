@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && surge ./build pager-chat-miguel.surge.sh"
+    "deploy": "npm run build && cp ./build/index.html ./build/200.html && surge ./build pager-chat-miguel.surge.sh"
   },
   "eslintConfig": {
     "extends": [
