@@ -50,6 +50,6 @@ export function shouldScrollDown (elm) {
   if (wasAtTheBottom) {
     setTimeout(() => {
       elm.current.scrollTop = elm.current.scrollHeight - elm.current.offsetHeight
-    }, 50)
+    }, 500)
   }
 }
